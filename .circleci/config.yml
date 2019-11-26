@@ -14,9 +14,9 @@ workflows:
   workflow:
     jobs:
       - build:
-          # triggers:
-          #   - push
-          #   - delete
+          triggers:
+            - push
+            - delete
           filters:
             tags:
               only: /^[v]\d+\.\d+\.\d+$/
