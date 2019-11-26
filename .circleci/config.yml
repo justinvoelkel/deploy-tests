@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build-prod:
+  build:
     docker:
     - image: circleci/node:10.15
     steps:
@@ -9,14 +9,16 @@ jobs:
         command: |
           echo 'export VERSION=$(npm run version)' >> $BASH_ENV
           source $BASH_ENV
+          echo "building version ${VERSION}"
+
 workflows:
   version: 2
   workflow:
     jobs:
-      - build-prod:
+      - build:
           filters:
             tags:
-              only: /^[v]\d+\.\d+\.\d+$/
+              only: ${VERSION}
             branches:
               ignore: /.*/
 
