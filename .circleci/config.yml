@@ -6,7 +6,7 @@ jobs:
     steps:
       - checkout
       - run:
-        command: echo 'running the build'
+          command: echo 'running the build'
 workflows:
   version: 2
   workflow:
