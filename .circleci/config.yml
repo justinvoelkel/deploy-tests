@@ -6,6 +6,7 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Building Production
           command: echo 'running the build'
 workflows:
   version: 2
