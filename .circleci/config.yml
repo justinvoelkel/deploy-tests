@@ -9,16 +9,15 @@ jobs:
         command: |
           echo 'export VERSION=$(npm run version)' >> $BASH_ENV
           source $BASH_ENV
-          echo "building version ${VERSION}"
-
 workflows:
   version: 2
   workflow:
     jobs:
       - build:
+          triggers: delete
           filters:
             tags:
-              only: /${VERSION}/
+              only: /^[v]\d+\.\d+\.\d+$/
             branches:
               ignore: /.*/
 
