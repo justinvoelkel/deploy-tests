@@ -4,19 +4,14 @@ jobs:
     docker:
     - image: circleci/node:10.15
     steps:
-    - checkout
-    - run:
-        command: |
-          echo 'export VERSION=$(npm run version)' >> $BASH_ENV
-          source $BASH_ENV
+      - checkout
+      - run:
+        command: echo 'running the build'
 workflows:
   version: 2
   workflow:
     jobs:
       - build:
-          triggers:
-            - push
-            - delete
           filters:
             tags:
               only: /^[v]\d+\.\d+\.\d+$/
