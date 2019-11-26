@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  build-prod:
     docker:
     - image: circleci/node:10.15
     steps:
@@ -13,12 +13,12 @@ workflows:
   version: 2
   workflow:
     jobs:
-      - build:
+      - build-prod:
           filters:
             tags:
               only: /^[v]\d+\.\d+\.\d+$/
             branches:
-              ignore: /.*/
+              only: master
 
 # version: 2.1
 # executors:
