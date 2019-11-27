@@ -1,32 +1,23 @@
-version: 2
-jobs:
-  build:
+version: 2.1
+executors:
+  node:
     docker:
-    - image: circleci/node:10.15
+      - image: circleci/node:10.15
+jobs:
+  build-prod:
+    executor: node
     steps:
       - checkout
       - run:
           name: Building Production
           command: echo 'running the build'
 workflows:
-  version: 2
+  version: 2.1
   workflow:
     jobs:
-      - build:
+      - build-prod:
           filters:
             tags:
               only: /^[v]\d+\.\d+\.\d+$/
             branches:
               ignore: /.*/
-
-# version: 2.1
-# executors:
-#   tester:
-#     docker:
-#       - image: circleci/node:10.15
-# jobs:
-#   build:
-#     executor: tester
-#     steps:
-#       - checkout
-#       - run: echo "henlo"
