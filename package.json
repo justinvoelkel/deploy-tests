@@ -1,6 +1,6 @@
 {
   "name": "deploy-tests",
-  "version": "0.0.6-alpha.1",
+  "version": "0.0.6-alpha.2",
   "description": "Testing out a version based deployment workflow",
   "main": "index.js",
   "scripts": {
