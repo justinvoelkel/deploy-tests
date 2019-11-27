@@ -34,6 +34,6 @@ workflows:
           filters:
             # Only send alpha, beta, or rc tags w optional number rev to staging
             tags:
-              only: ^[v]\d+\.\d+\.\d+\-\b(alpha|beta|rc)([\d]+)?$
+              only: ^[v]\d+\.\d+\.\d+\-\b(alpha|beta|rc)(.[\d]+)?$
             branches:
               ignore: /.*/
