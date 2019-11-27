@@ -4,20 +4,36 @@ executors:
     docker:
       - image: circleci/node:10.15
 jobs:
-  build-prod:
+  build-production:
     executor: node
     steps:
       - checkout
       - run:
           name: Building Production
-          command: echo 'running the build'
+          command: echo 'running the production build'
+  build-staging:
+    executor: node
+    steps:
+      - checkout
+      - run:
+          name: Building Production
+          command: echo 'running the staging build'
+
 workflows:
   version: 2.1
   workflow:
     jobs:
-      - build-prod:
+      - build-production:
           filters:
+            # Only send stable version to production (no alpha, beta, rc)
             tags:
               only: /^[v]\d+\.\d+\.\d+$/
+            branches:
+              ignore: /.*/
+      - build-staging:
+          filters:
+            # Only send alpha, beta, or rc tags w optional number rev to staging
+            tags:
+              only: ^[v]\d+\.\d+\.\d+\-\b(alpha|beta|rc)([\d]+)?$
             branches:
               ignore: /.*/
