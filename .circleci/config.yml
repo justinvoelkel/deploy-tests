@@ -16,7 +16,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Building Production
+          name: Building Staging
           command: echo 'running the staging build'
 
 workflows:
