@@ -32,6 +32,6 @@ workflows:
       - build-staging:
           filters:
             tags:
-              only: ^[v]\d+\.\d+\.\d+\-\b(alpha|beta|rc)(.[\d]+)?$
+              only: /^[v]\d+\.\d+\.\d+\-\b(alpha|beta|rc)(.[\d]+)?$/
             branches:
               ignore: /.*/
