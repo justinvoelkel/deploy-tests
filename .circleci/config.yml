@@ -25,14 +25,12 @@ workflows:
     jobs:
       - build-production:
           filters:
-            # Only send stable version to production (no alpha, beta, rc)
             tags:
               only: /^[v]\d+\.\d+\.\d+$/
             branches:
               ignore: /.*/
       - build-staging:
           filters:
-            # Only send alpha, beta, or rc tags w optional number rev to staging
             tags:
               only: ^[v]\d+\.\d+\.\d+\-\b(alpha|beta|rc)(.[\d]+)?$
             branches:
