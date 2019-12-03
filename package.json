@@ -1,6 +1,6 @@
 {
   "name": "deploy-tests",
-  "version": "0.0.8-rc.1",
+  "version": "0.0.11-rc.0",
   "description": "Testing out a version based deployment workflow",
   "main": "index.js",
   "scripts": {
